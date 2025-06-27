@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history and tags
     - name: set up JDK 1.21
       uses: actions/setup-java@v4
       with:
@@ -43,7 +45,7 @@ jobs:
       with:
         name: RTR-NetztestCLI-macos
         path: |
-          RMBTClient/build/RTR-Netztest/*
+          RMBTClient/build/RTR-Netztest.app/*
         retention-days: 90
     - name: Intermediate file check
       run: |
