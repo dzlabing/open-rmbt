@@ -1,4 +1,4 @@
-name: Build RTR-NetztestCLI-linux-x64 (without testing)
+name: Build RTR-NetztestCLI-macos (without testing)
 
 on: [push]
 
