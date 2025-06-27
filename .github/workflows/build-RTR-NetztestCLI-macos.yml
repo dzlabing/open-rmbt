@@ -45,7 +45,7 @@ jobs:
       with:
         name: RTR-NetztestCLI-macos
         path: |
-          RMBTClient/build/RTR-Netztest/*
+          RMBTClient/build/RTR-Netztest.app/*
         retention-days: 90
     - name: Intermediate file check
       run: |
