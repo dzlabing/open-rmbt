@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build-linux-x64:
 
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -32,7 +32,6 @@ jobs:
         cp RMBTClient/icon/rtr-netztest.ico RMBTClient/build
         cd RMBTClient/build/
         ls *
-        git describe --tags
         latest_tag=$(git describe --tags --abbrev=0)
         echo "Latest tag: $latest_tag"
         jpackage --input libs --name "RTR-Netztest" --icon rtr-netztest.ico --main-jar RMBTClient-all.jar  --main-class at.rtr.rmbt.client.RMBTClientRunner --type app-image --app-version "$latest_tag"  --vendor "RTR" --verbose --arguments --log  --description "RTR-Netztest - RMBTClient engine"
