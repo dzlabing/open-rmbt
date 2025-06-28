@@ -4,7 +4,7 @@ Open-RMBT
 > *Open-RMBT* is an open source, multi-threaded bandwidth measurement system.
 
 
-This code builds the Java 21 client. This client is used as part of the desktop apps.
+This code builds the Java client. This client is used as part of the desktop apps.
 
 
 *Open-RMBT* is released under the [Apache License, Version 2.0](LICENSE). It was developed
