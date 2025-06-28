@@ -57,3 +57,5 @@ jobs:
       with:
         files: 
           D:\a\open-rmbt\open-rmbt\RMBTClient\build\RTR-NetztestCLI-win32.zip
+        tag_name: ${{ github.ref }}  # This is the tag name
+        name: ${{ github.ref }}-win  # Concatenate '-win' to the tag for the release name
