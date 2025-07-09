@@ -128,25 +128,25 @@ jobs:
     needs: [build-win, build-linux-x64, build-macos]
     steps:
       - name: Download Windows Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: windows-artifacts
           path: windows
 
       - name: Download Ubuntu Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: ubuntu-artifacts
           path: ubuntu
 
       - name: Download macos Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: macos-artifacts
           path: macos
 
       - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v2
         with:
           artifacts: |
             ubuntu/RTR-NetztestCLI-jar
