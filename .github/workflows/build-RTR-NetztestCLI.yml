@@ -19,7 +19,7 @@ jobs:
     - name: Build with Gradle
       run: |
         ./gradlew :RMBTClient:shadowJar -x test
-    - name: Archive files
+    - name: Archive jar
       uses: actions/upload-artifact@v4
       with:
         name: RTR-NetztestCLI-jar
@@ -39,7 +39,7 @@ jobs:
         jpackage --input libs --name "RTR-Netztest" --icon rtr-netztest.png --main-jar RMBTClient-all.jar  --main-class at.rtr.rmbt.client.RMBTClientRunner --type app-image --app-version "$version_tag"  --vendor "RTR" --verbose --arguments --log  --description "RTR-Netztest - RMBTClient engine"
         ls *
         zip -r RTR-NetztestCLI-linux-x64.zip RTR-Netztest 
-    - name: Archive files
+    - name: Archive files linux
       uses: actions/upload-artifact@v4
       with:
         name: RTR-NetztestCLI-linux-x64
@@ -63,13 +63,6 @@ jobs:
     - name: Build with Gradle
       run: |
         ./gradlew :RMBTClient:shadowJar -x test
-    - name: Archive files
-      uses: actions/upload-artifact@v4
-      with:
-        name: RTR-NetztestCLI-jar
-        path: |
-          RMBTClient/build/libs/*-all.jar
-        retention-days: 90
     - name: Build jpackage
       run: |
         cp RMBTClient/icon/rtr-netztest.icns RMBTClient/build
@@ -83,7 +76,7 @@ jobs:
         jpackage --input libs --name "RTR-Netztest" --icon rtr-netztest.icns --main-jar RMBTClient-all.jar  --main-class at.rtr.rmbt.client.RMBTClientRunner --type app-image --app-version "$version_tag"  --vendor "RTR" --verbose --arguments --log  --description "RTR-Netztest - RMBTClient engine"
         ls *
         zip -r RTR-NetztestCLI-macos.zip RTR-Netztest.app
-    - name: Archive files
+    - name: Archive files macos
       uses: actions/upload-artifact@v4
       with:
         name: RTR-NetztestCLI-macos
@@ -121,19 +114,12 @@ jobs:
         jpackage --input libs/ --name "RTR-Netztest" --icon rtr-netztest.ico --main-jar RMBTClient-all.jar  --main-class at.rtr.rmbt.client.RMBTClientRunner --type app-image --app-version "$versionTag"  --vendor "RTR" --verbose --arguments --log --description "RTR-Netztest - RMBTClient engine"
         dir *
         Compress-Archive -Path RTR-Netztest -DestinationPath RTR-NetztestCLI-win32.zip 
-    - name: Archive files
+    - name: Archive files win
       uses: actions/upload-artifact@v4
       with:
         name: RTR-NetztestCLI-win32
         path: |
           RMBTClient/build/RTR-Netztest/*
-        retention-days: 90
-    - name: Archive jar
-      uses: actions/upload-artifact@v4
-      with:
-        name: RTR-NetztestCLI-jar
-        path: |
-          RMBTClient/build/libs/*-all.jar
         retention-days: 90
 
 
