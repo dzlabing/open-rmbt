@@ -139,7 +139,7 @@ jobs:
 
   create_release:
     runs-on: ubuntu-latest
-    needs: [build_windows, build_ubuntu]
+    needs: [build-win, build-linux-x64, build-macos]
     steps:
       - name: Download Windows Artifacts
         uses: actions/download-artifact@v2
