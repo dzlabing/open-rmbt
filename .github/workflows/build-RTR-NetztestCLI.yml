@@ -147,8 +147,9 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
         with:
-          artifacts: |
+          files: |
             ubuntu/RTR-NetztestCLI-jar
             ubuntu/RTR-NetztestCLI-linux-x64
             windows/RTR-NetztestCLI-win32
