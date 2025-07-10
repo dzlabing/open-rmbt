@@ -144,6 +144,13 @@ jobs:
         with:
           name: RTR-NetztestCLI-macos
           path: macos
+
+      - name: Zip artifacts again
+        run: |
+          zip -r RTR-NetztestCLI-linux-x64.zip linux          
+          zip -r RTR-NetztestCLI-win32.zip windows
+          zip -r RTR-NetztestCLI-macos.zip macos
+          
           
       - name: List Files for Debugging
         run: |
@@ -159,8 +166,8 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           files: |
-            linux/RTR-NetztestCLI-jar
-            linux/RTR-NetztestCLI-linux-x64
-            windows/RTR-NetztestCLI-win32
-            macos//RTR-NetztestCLI-macos            
+            linux/lib/app/RMBTClient-all.jar
+            RTR-NetztestCLI-linux-x64.zip
+            RTR-NetztestCLI-win32.zip
+            RTR-NetztestCLI-macos.zip        
           token: ${{ secrets.GITHUB_TOKEN }}
