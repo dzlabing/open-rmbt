@@ -137,21 +137,30 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: RTR-NetztestCLI-linux-x64
-          path: ubuntu
+          path: linux
 
       - name: Download macos Artifacts
         uses: actions/download-artifact@v4
         with:
           name: RTR-NetztestCLI-macos
           path: macos
+          
+      - name: List Files for Debugging
+        run: |
+          echo "Listing files in linux"
+          ls -R linux
+          echo "Listing files in windows"
+          ls -R windows
+          echo "Listing files in macos"
+          ls -R macos
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
           files: |
-            ubuntu/RTR-NetztestCLI-jar
-            ubuntu/RTR-NetztestCLI-linux-x64
+            linux/RTR-NetztestCLI-jar
+            linux/RTR-NetztestCLI-linux-x64
             windows/RTR-NetztestCLI-win32
             macos//RTR-NetztestCLI-macos            
           token: ${{ secrets.GITHUB_TOKEN }}
