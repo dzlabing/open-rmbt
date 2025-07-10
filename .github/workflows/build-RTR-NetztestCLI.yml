@@ -147,9 +147,13 @@ jobs:
 
       - name: Zip artifacts again
         run: |
-          zip -r RTR-NetztestCLI-linux-x64.zip linux          
-          zip -r RTR-NetztestCLI-win32.zip windows
-          zip -r RTR-NetztestCLI-macos.zip macos
+          cd linux
+          zip -r ../RTR-NetztestCLI-linux-x64.zip .
+          cd ../windows
+          zip -r ../RTR-NetztestCLI-win32.zip .
+          cd ../macos
+          zip -r ../RTR-NetztestCLI-macos.zip .
+          cd ..
           
           
       - name: List Files for Debugging
