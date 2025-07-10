@@ -130,19 +130,19 @@ jobs:
       - name: Download Windows Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: windows-artifacts
+          name: RTR-NetztestCLI-win32
           path: windows
 
-      - name: Download Ubuntu Artifacts
+      - name: Download Linux Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: ubuntu-artifacts
+          name: RTR-NetztestCLI-linux-x64
           path: ubuntu
 
       - name: Download macos Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: macos-artifacts
+          name: RTR-NetztestCLI-macos
           path: macos
 
       - name: Create GitHub Release
